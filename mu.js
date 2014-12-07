@@ -44,6 +44,10 @@
 		return document.createElement(tag);
 	};
 
+	µ.byid = function(id) {
+		return document.getElementById(id);
+	};
+
 /******************************************************************************/
 // Node prototype extensions
 
