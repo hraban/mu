@@ -10,9 +10,13 @@ just to add some text to an element?
 
 Look no further!
 
-µ is a tiny (1.02KB gzipped) DOM library for JavaScript, based on prototypal extension of Node and Array (yes, it may be ugly, but it works mighty fine), chainability, and not caring about Internet Explorer.
+µ is a tiny (1.02KB gzipped) DOM library for JavaScript. Features:
 
-The above example written with µ:
+* extension of native Node and Array prototypes
+* chainability
+* doesn't car about Internet Explorer < 11.
+
+The result is a sweet DSL for the native DOM. The same example as above, in µ:
 
     µ.one("div").add("hello");
 
@@ -57,16 +61,18 @@ Or you can go crazy!
 
 ## Syntax
 
-### Using µ
+### Selectors
 
-- **µ.one(selector)** returns the first element in document found by `selector`.
+- **µ.one(selector)** returns the first element in document found by `selector`
+  (like `document.querySelector`)
 - **µ.all(selector)** returns all elements in document found by `selector`.
-- **µ.create(tag)** returns a new element.
+  (like `document.querySelectorAll`)
 
-### µ creation shorthand
+### Constructors
 
 You can create elements using the following shorthand functions. All arguments are optional, and adding more arguments basically works like `.add()` (see below).
 
+- **µ.create(tag)** returns a new element.
 - **µ.a(href)** creates an anchor.
 - **µ.img(src, alt, title)** creates an image.
 - **µ.input(type, value)** you guessed it.
@@ -85,7 +91,7 @@ There are also shorthands for the following tags, without specific attributes: *
 
 There are uppercase aliases for all of these, e.g. `µ.SECTION(µ.H1("Title"))`.
 
-### Using chaining
+### Chaining
 
 When using a callback function, like in `.each()` and `.on()`, `this` refers to the current element or the element which received the event.
 
